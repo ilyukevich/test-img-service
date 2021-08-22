@@ -37,6 +37,13 @@ Server start:
 
 ## DRF
 #### http://localhost:8000/api/
+#### http://localhost:8000/api/token/ - token
+#### http://localhost:8000/api/token/refresh/ - refresh token
+#### http://localhost:8000/api/registrations/ - registration
+#### http://localhost:8000/api/login/ - login
+#### http://localhost:8000/api/logout/ - logout
+#### http://localhost:8000/api/reset-password/ - reset password
+
 ## Swagger:
 #### http://localhost:8000/swagger/
 

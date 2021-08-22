@@ -27,21 +27,21 @@ Server start:
 ```
  python manage.py runserver
  ```
-###Authorization 
+### Authorization 
 - superuser - [admin: admin]
 - administrator - [administrator: administrator]
 - user - [user: user]
 
-####http://localhost:8000/
-####http://localhost:8000/admin
+#### http://localhost:8000/
+#### http://localhost:8000/admin
 
-##DRF
-####http://localhost:8000/api/
-##Swagger:
-####http://localhost:8000/swagger/
+## DRF
+#### http://localhost:8000/api/
+## Swagger:
+#### http://localhost:8000/swagger/
 
-##Redoc:
-####http://localhost:8000/redoc/
+## Redoc:
+#### http://localhost:8000/redoc/
 
 
 # *UPD INSTALL

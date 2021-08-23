@@ -2,11 +2,17 @@
 
 - Django 3.2.5
 - Django Rest Framework 3.12.4
+- Celery 5.1.2 
+- Redis 3.5.3 
 
-# INSTALL
+# INSTALL (for linux)
 
 1) Git clone https://github.com/ilyukevich/test-img-service.git
-2) Execute from the project folder:
+2) Install redis-server:
+```
+sudo apt-get install redis-server
+```
+3) Execute from the project folder:
 
 ```
 pip install -r requirements.txt
@@ -23,7 +29,11 @@ Load data into database. Creating groups and permissions for them, creating supe
 ```
 python manage.py load_data_into_database
 ```
-Server start:
+Start celery:
+```
+celery -A config worker -l INFO
+```
+Start server:
 ```
  python manage.py runserver
  ```
@@ -32,6 +42,10 @@ Server start:
 - administrator - [administrator: administrator]
 - user - [user: user]
 
+### Celery 
+- task. Sent email for user after success registration: http://localhost:8000/api/registrations/
+
+### Project available:
 #### http://localhost:8000/
 #### http://localhost:8000/admin
 
@@ -51,7 +65,7 @@ Server start:
 #### http://localhost:8000/redoc/
 
 
-# *UPD INSTALL
+# *UPD INSTALL (docker)
 - install docker, docker-compose
 - git clone https://github.com/ilyukevich/test-img-service.git
 - from project folder:

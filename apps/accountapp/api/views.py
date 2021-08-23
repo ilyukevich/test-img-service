@@ -10,6 +10,7 @@ from drf_yasg.utils import swagger_auto_schema
 from .serializers import (UserSerializer, LoginSerializer, RegistrationSerializer,
                           LogoutSerializer, ResetPasswordSerializer)
 from ..models import User
+from apps.accountapp.tasks import user_created
 import environ
 import jwt
 import random
@@ -82,6 +83,9 @@ class RegistrationAPIView(APIView):
                 user.save()
             elif request.data['role'] == 'User':
                 user.groups.add(group_users)
+
+            # task. Sent email for user after success registration
+            user_created.delay(username)
 
             return Response(status=status.HTTP_201_CREATED,
                             data={

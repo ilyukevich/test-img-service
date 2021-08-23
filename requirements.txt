@@ -9,3 +9,7 @@ PyJWT==2.1.0 #https://pyjwt.readthedocs.io/en/stable/
 
 gunicorn==20.1.0 #https://pypi.org/project/gunicorn/
 psycopg2-binary==2.9.1 #https://pypi.org/project/psycopg2-binary/
+
+celery==5.1.2 #https://pypi.org/project/celery/
+redis==3.5.3 #https://pypi.org/project/redis/
+flower==1.0.0 #https://pypi.org/project/flower/

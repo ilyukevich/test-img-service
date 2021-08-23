@@ -26,7 +26,7 @@ class Image(models.Model):
     category = models.ForeignKey(Category, related_name='products', on_delete=models.CASCADE)
     name = models.CharField(max_length=200, db_index=True)
     slug = models.SlugField(max_length=200, db_index=True)
-    image = models.ImageField(upload_to='images/%Y/%m/%d', blank=True)
+    image = models.ImageField(upload_to='images/%Y/%m/%d')
     description = models.TextField(blank=True)
     available = models.BooleanField(default=True)
     created = models.DateTimeField(auto_now_add=True)

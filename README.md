@@ -3,118 +3,71 @@
 - Django 3.2.5
 - Django Rest Framework 3.12.4
 - Celery 5.1.2 
-- Redis 3.5.3 
+- Redis 3.5.3
 
 # INSTALL (for linux)
 
-1) Git clone https://github.com/ilyukevich/test-img-service.git
-2) Install redis-server:
-```
-sudo apt-get install redis-server
-```
+1) Install docker, docker-compose:
+2) Git clone https://github.com/ilyukevich/test-img-service.git
 3) Execute from the project folder:
-
-```
-pip install -r requirements.txt
-```
-Preparation of migrations:
-```
-python manage.py makemigrations
-```
-Applying migrations:
-```
-python manage.py migrate
-```
-Load data into database. Creating groups and permissions for them, creating superuser, creating users and selecting groups for them:
-```
-python manage.py load_data_into_database
-```
-Start celery:
-```
-celery -A config worker -l INFO
-```
-Start server:
-```
- python manage.py runserver
- ```
-### Authorization 
-- superuser - [admin: admin]
-- administrator - [administrator: administrator]
-- user - [user: user]
-
-### Celery 
-- task. Sent email for user after success registration: http://localhost:8000/api/registrations/
-
-### Project available:
-#### http://localhost:8000/
-#### http://localhost:8000/admin
-
-## DRF
-#### http://localhost:8000/api/
-#### http://localhost:8000/api/token/ - token
-#### http://localhost:8000/api/token/refresh/ - refresh token
-#### http://localhost:8000/api/registrations/ - registration
-#### http://localhost:8000/api/login/ - login
-#### http://localhost:8000/api/logout/ - logout
-#### http://localhost:8000/api/reset-password/ - reset password
-
-## Swagger:
-#### http://localhost:8000/swagger/
-
-## Redoc:
-#### http://localhost:8000/redoc/
-
-
-# *UPD INSTALL (docker)
-- install docker, docker-compose
-- git clone https://github.com/ilyukevich/test-img-service.git
-- from project folder:
 ```
 sudo docker-compose up -d --build
 ```
-- enter in container django:
+4) Enter in container django:
 ```
 sudo docker exec -it django bash
 ```
-a) from container django. Preparation of migrations:
+- Preparation of migrations:
 ```
 python manage.py makemigrations
 ```
-b) from container django. Applying migrations:
+- Applying migrations:
 ```
 python manage.py migrate
 ```
-c) from container django. Load data into database. Creating groups and permissions for them, creating superuser, creating users and selecting groups for them:
+- Load data into database. Creating groups and permissions for them, creating superuser, creating users and selecting groups for them:
 ```
 python manage.py load_data_into_database
 ```
-LOGIN: PASS 
-- superuser - admin: admin
-- administrator - administrator: administrator
-- user - user: user
-
-d) from container django. Collection of all statics:
+- Collection of all statics:
 ```
 python manage.py collectstatic
 ```
-- start all containers. Use the key -d to run containers in the background:
+- Start celery:
+```
+celery -A config worker -l INFO
+```
+Start all containers. Use the key -d to run containers in the background:
 ```
 sudo docker-compose up
 ```
-- stop all containers:
+Stop all containers:
 ```
 sudo docker-compose stop
 ```
-- http://127.0.0.1/
-- http://127.0.0.1/admin/
-- http://localhost/
-- http://localhost/admin/
 
-- Swagger:
-```
-http://localhost/swagger/
-```
-- Redoc:
-```
-http://localhost/redoc/
-```
+### Authorization 
+- role superuser - [admin: admin]
+- role administrator - [administrator: administrator]
+- role user - [user: user]
+
+### Celery 
+- task. Sent email for user after success registration: http://localhost/api/registrations/
+
+### Project available:
+#### http://localhost/admin
+
+## DRF
+#### http://localhost/api/
+#### http://localhost/api/token/ - token
+#### http://localhost/api/token/refresh/ - refresh token
+#### http://localhost/api/registrations/ - registration
+#### http://localhost/api/login/ - login
+#### http://localhost/api/logout/ - logout
+#### http://localhost/api/reset-password/ - reset password
+
+## Swagger:
+#### http://localhost/swagger/
+
+## Redoc:
+#### http://localhost/redoc/
